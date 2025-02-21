@@ -15,15 +15,15 @@ namespace sql_project
 		MySqlCommand cmd;
 		MySqlDataAdapter da;
 		MySqlDataReader dr;
-		public void baslat()
-		{
-			conn = new MySqlConnection(conStr);
-			conn.Open();
-		}
-		public void kapat()
-		{
-			conn.Close();
-		}
+		//public void baslat()
+		//{
+		//	conn = new MySqlConnection(conStr);
+		//	conn.Open();
+		//}
+		//public void kapat()
+		//{
+		//	conn.Close();
+		//}
 
 		public DataTable kullaniciler()
 		{
@@ -52,45 +52,48 @@ namespace sql_project
 		//}
 		public void kullanici_ekle(string adSoyad, string mail, string telNo, string parola, string bakiye, string kullaniciRol)
 		{
-			using (MySqlCommand cmd = new MySqlCommand("kullanıcı_ekle", conn))
+			using (MySqlConnection conn = new MySqlConnection(conStr))
 			{
-				cmd.CommandType = CommandType.StoredProcedure;
-
-				cmd.Parameters.AddWithValue("@pAd_Soyad", adSoyad);
-				cmd.Parameters.AddWithValue("@pmail", mail);
-				cmd.Parameters.AddWithValue("@pTel_no", telNo);
-				cmd.Parameters.AddWithValue("@pParola", parola);
-				cmd.Parameters.AddWithValue("@PBakiye", bakiye);
-				cmd.Parameters.AddWithValue("@pKullanici_rol", kullaniciRol);
-
-				try
+				using (MySqlCommand cmd = new MySqlCommand("kullanıcı_ekle", conn))
 				{
-					conn.Open();
-					int affectedRows = cmd.ExecuteNonQuery();
+					cmd.CommandType = CommandType.StoredProcedure;
 
-					if (affectedRows > 0)
+					cmd.Parameters.AddWithValue("@pAd_Soyad", adSoyad);
+					cmd.Parameters.AddWithValue("@pmail", mail);
+					cmd.Parameters.AddWithValue("@pTel_no", telNo);
+					cmd.Parameters.AddWithValue("@pParola", parola);
+					cmd.Parameters.AddWithValue("@PBakiye", bakiye);
+					cmd.Parameters.AddWithValue("@pKullanıcı_rol", kullaniciRol);
+
+					try
 					{
-						MessageBox.Show("Kullanıcı başarıyla eklendi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						conn.Open();
+						int affectedRows = cmd.ExecuteNonQuery();
+
+						if (affectedRows > 0)
+						{
+							MessageBox.Show("Kullanıcı başarıyla eklendi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						}
+						else
+						{
+							MessageBox.Show("Kullanıcı eklenemedi!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						}
 					}
-					else
+					catch (MySqlException ex)
 					{
-						MessageBox.Show("Kullanıcı eklenemedi!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						if (ex.Number == 1062) // Duplicate Entry Hatası (Mail Zaten Kayıtlı)
+						{
+							MessageBox.Show("Mail adresi zaten kayıtlı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+						}
+						else
+						{
+							MessageBox.Show($"Veritabanı hatası: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						}
 					}
-				}
-				catch (MySqlException ex)
-				{
-					if (ex.Number == 1062) // Duplicate Entry Hatası (Mail Zaten Kayıtlı)
+					catch (Exception ex)
 					{
-						MessageBox.Show("Mail adresi zaten kayıtlı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+						MessageBox.Show($"Beklenmeyen bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					}
-					else
-					{
-						MessageBox.Show($"Veritabanı hatası: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-					}
-				}
-				catch (Exception ex)
-				{
-					MessageBox.Show($"Beklenmeyen bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 		}

@@ -18,9 +18,9 @@ namespace sql_project
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dbm.baslat();
+            //dbm.baslat();
             dataGridView1.DataSource = dbm.kullaniciler();
-            dbm.kapat();
+            //dbm.kapat();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -31,11 +31,11 @@ namespace sql_project
 			string parola = textBox4.Text;
 			string bakiye = textBox5.Text;
 			string rol = textBox6.Text;
-			dbm.baslat();
+			//dbm.baslat();
 
 			dbm.kullanici_ekle(isim, mail, tel, parola, bakiye, rol);
 
-			dbm.kapat();
+			//dbm.kapat();
 
 		}
 	}

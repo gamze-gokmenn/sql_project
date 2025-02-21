@@ -19,7 +19,7 @@ namespace sql_project
         private void button1_Click(object sender, EventArgs e)
         {
             dbm.baslat();
-            dataGridView1.DataSource = dbm.urunler();
+            dataGridView1.DataSource = dbm.kullaniciler();
             dbm.kapat();
         }
 

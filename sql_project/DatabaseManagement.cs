@@ -25,7 +25,7 @@ namespace sql_project
 			conn.Close();
 		}
 
-		public DataTable urunler()
+		public DataTable kullaniciler()
 		{
 			string query = "select * from kullanıcılar";
 			cmd = new MySqlCommand(query, conn);
@@ -35,32 +35,64 @@ namespace sql_project
 			da.Fill(dataTable);
 			return dataTable;
 		}
-		public void kullanici_ekle(string ad_soyad, string mail, string tel_no, string parola, string bakiye, string kullanici_rol)
+
+
+		//using (MySqlCommand cmd = new MySqlCommand("GetStudentCount", conn))
+		//{
+		//	cmd.CommandType = CommandType.StoredProcedure;
+
+		//	MySqlParameter outputParam = new MySqlParameter("@studentCount", MySqlDbType.Int32);
+		//	outputParam.Direction = ParameterDirection.Output;
+		//	cmd.Parameters.Add(outputParam);
+
+		//	cmd.ExecuteNonQuery();
+
+		//	int count = Convert.ToInt32(cmd.Parameters["@studentCount"].Value);
+		//	Console.WriteLine($"Toplam öğrenci sayısı: {count}");
+		//}
+		public void kullanici_ekle(string adSoyad, string mail, string telNo, string parola, string bakiye, string kullaniciRol)
 		{
-			string query = "call kullanıcı_ekle(@ad_soyad,@mail,@tel_no,@parola,@bakiye,@kullanici_rol)";
-
-			cmd = new MySqlCommand(query, conn);
-			cmd.Parameters.AddWithValue("@ad_soyad", ad_soyad);
-			cmd.Parameters.AddWithValue("@mail", mail);
-			cmd.Parameters.AddWithValue("@tel_no", tel_no);
-			cmd.Parameters.AddWithValue("@parola", parola);
-			cmd.Parameters.AddWithValue("@bakiye", bakiye);
-			cmd.Parameters.AddWithValue("@kullanici_rol", kullanici_rol);
-
-			try
+			using (MySqlCommand cmd = new MySqlCommand("kullanıcı_ekle", conn))
 			{
-			cmd.ExecuteNonQuery();
+				cmd.CommandType = CommandType.StoredProcedure;
 
+				cmd.Parameters.AddWithValue("@pAd_Soyad", adSoyad);
+				cmd.Parameters.AddWithValue("@pmail", mail);
+				cmd.Parameters.AddWithValue("@pTel_no", telNo);
+				cmd.Parameters.AddWithValue("@pParola", parola);
+				cmd.Parameters.AddWithValue("@PBakiye", bakiye);
+				cmd.Parameters.AddWithValue("@pKullanici_rol", kullaniciRol);
+
+				try
+				{
+					conn.Open();
+					int affectedRows = cmd.ExecuteNonQuery();
+
+					if (affectedRows > 0)
+					{
+						MessageBox.Show("Kullanıcı başarıyla eklendi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					}
+					else
+					{
+						MessageBox.Show("Kullanıcı eklenemedi!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+				}
+				catch (MySqlException ex)
+				{
+					if (ex.Number == 1062) // Duplicate Entry Hatası (Mail Zaten Kayıtlı)
+					{
+						MessageBox.Show("Mail adresi zaten kayıtlı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+					}
+					else
+					{
+						MessageBox.Show($"Veritabanı hatası: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show($"Beklenmeyen bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
 			}
-			catch
-			{
-				MessageBox.Show("Mail Adresi Kullanılmakta");
-			}
-
-			MessageBox.Show("Kullanıcı Başarılı Bir Şekilde Eklendi");
-
-			// update kullanıcılar set ad = gad, mail= gmail where id = gid;
-
 		}
 	}
 }

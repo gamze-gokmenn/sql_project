@@ -15,15 +15,7 @@ namespace sql_project
 		MySqlCommand cmd;
 		MySqlDataAdapter da;
 		MySqlDataReader dr;
-		//public void baslat()
-		//{
-		//	conn = new MySqlConnection(conStr);
-		//	conn.Open();
-		//}
-		//public void kapat()
-		//{
-		//	conn.Close();
-		//}
+
 
 		public DataTable kullaniciler()
 		{

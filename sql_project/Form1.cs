@@ -25,18 +25,30 @@ namespace sql_project
 
         private void button2_Click(object sender, EventArgs e)
         {
-			string isim = textBox1.Text;
-			string mail = textBox2.Text;
-			string tel = textBox3.Text;
-			string parola = textBox4.Text;
-			string bakiye = textBox5.Text;
-			string rol = textBox6.Text;
-			//dbm.baslat();
+            string isim = textBox1.Text;
+            string mail = textBox2.Text;
+            string tel = textBox3.Text;
+            string parola = textBox4.Text;
+            string bakiye = textBox5.Text;
+            string rol = textBox6.Text;
+            //dbm.baslat();
 
-			dbm.kullanici_ekle(isim, mail, tel, parola, bakiye, rol);
+            dbm.kullanici_ekle(isim, mail, tel, parola, bakiye, rol);
 
-			//dbm.kapat();
+            //dbm.kapat();
 
-		}
-	}
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Urunler urunler = new Urunler();
+            urunler.Show();
+            //this.Hide();
+        }
+    }
 }

@@ -10,18 +10,16 @@ using System.Windows.Forms;
 
 namespace sql_project
 {
-	public partial class LoginForm : Form
-	{
-		public LoginForm()
-		{
-			InitializeComponent();
-		}
+    public partial class Kumas : Form
+    {
+        public Kumas()
+        {
+            InitializeComponent();
+        }
 
-		private void button1_Click(object sender, EventArgs e)
-		{
-			Form1 frm = new Form1();	
-			frm.ShowDialog();
-			//this.Hide();
-		}
-	}
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

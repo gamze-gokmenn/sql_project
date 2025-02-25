@@ -43,16 +43,18 @@
             // 
             // button1
             // 
+            button1.BackColor = Color.IndianRed;
             button1.Location = new Point(24, 34);
             button1.Name = "button1";
             button1.Size = new Size(112, 34);
             button1.TabIndex = 0;
             button1.Text = "listele";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // dataGridView1
             // 
+            dataGridView1.BackgroundColor = Color.PaleTurquoise;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(24, 146);
             dataGridView1.Name = "dataGridView1";
@@ -62,51 +64,63 @@
             // 
             // textBox1
             // 
+            textBox1.BackColor = Color.DarkKhaki;
             textBox1.Location = new Point(814, 154);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(150, 31);
             textBox1.TabIndex = 2;
+            textBox1.Text = "Ad-Soyad";
             // 
             // textBox2
             // 
+            textBox2.BackColor = Color.DarkKhaki;
             textBox2.Location = new Point(814, 201);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(150, 31);
             textBox2.TabIndex = 3;
+            textBox2.Text = "Mail";
             // 
             // textBox3
             // 
+            textBox3.BackColor = Color.DarkKhaki;
             textBox3.Location = new Point(814, 296);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(150, 31);
             textBox3.TabIndex = 5;
+            textBox3.Text = "Kullanıcı Rol";
             // 
             // textBox4
             // 
+            textBox4.BackColor = Color.DarkKhaki;
             textBox4.Location = new Point(814, 249);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(150, 31);
             textBox4.TabIndex = 4;
+            textBox4.Text = "Tel No";
             // 
             // textBox5
             // 
+            textBox5.BackColor = Color.DarkKhaki;
             textBox5.Location = new Point(814, 389);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(150, 31);
             textBox5.TabIndex = 7;
+            textBox5.Text = "Parola";
             // 
             // textBox6
             // 
+            textBox6.BackColor = Color.DarkKhaki;
             textBox6.Location = new Point(814, 342);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(150, 31);
             textBox6.TabIndex = 6;
+            textBox6.Text = "Bakiye";
             // 
             // button2
             // 
-            button2.BackColor = Color.Black;
-            button2.ForeColor = SystemColors.MenuHighlight;
-            button2.Location = new Point(802, 88);
+            button2.BackColor = Color.DarkKhaki;
+            button2.ForeColor = SystemColors.InfoText;
+            button2.Location = new Point(814, 84);
             button2.Name = "button2";
             button2.Size = new Size(142, 41);
             button2.TabIndex = 8;
@@ -116,17 +130,20 @@
             // 
             // button3
             // 
-            button3.Location = new Point(286, 26);
+            button3.BackColor = Color.IndianRed;
+            button3.Location = new Point(228, 34);
             button3.Name = "button3";
             button3.Size = new Size(112, 34);
             button3.TabIndex = 9;
             button3.Text = "ürünlere git";
-            button3.UseVisualStyleBackColor = true;
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Teal;
             ClientSize = new Size(1082, 450);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -140,6 +157,7 @@
             Controls.Add(button1);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

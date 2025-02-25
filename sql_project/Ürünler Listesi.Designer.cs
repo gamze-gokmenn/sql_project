@@ -80,12 +80,13 @@
             // button4
             // 
             button4.BackColor = SystemColors.Highlight;
-            button4.Location = new Point(624, 364);
+            button4.Location = new Point(559, 342);
             button4.Name = "button4";
             button4.Size = new Size(112, 34);
             button4.TabIndex = 4;
             button4.Text = "Sepete Git";
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // button5
             // 

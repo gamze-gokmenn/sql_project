@@ -44,13 +44,13 @@
             dataGridView1.Location = new Point(28, 33);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(360, 225);
+            dataGridView1.Size = new Size(644, 386);
             dataGridView1.TabIndex = 0;
             // 
             // button1
             // 
             button1.BackColor = Color.MediumAquamarine;
-            button1.Location = new Point(517, 33);
+            button1.Location = new Point(790, 86);
             button1.Name = "button1";
             button1.Size = new Size(154, 34);
             button1.TabIndex = 1;
@@ -60,7 +60,7 @@
             // button2
             // 
             button2.BackColor = Color.MediumAquamarine;
-            button2.Location = new Point(517, 101);
+            button2.Location = new Point(790, 154);
             button2.Name = "button2";
             button2.Size = new Size(154, 34);
             button2.TabIndex = 2;
@@ -70,7 +70,7 @@
             // button3
             // 
             button3.BackColor = Color.MediumAquamarine;
-            button3.Location = new Point(517, 169);
+            button3.Location = new Point(790, 222);
             button3.Name = "button3";
             button3.Size = new Size(154, 34);
             button3.TabIndex = 3;
@@ -80,7 +80,7 @@
             // button4
             // 
             button4.BackColor = SystemColors.Highlight;
-            button4.Location = new Point(559, 342);
+            button4.Location = new Point(832, 311);
             button4.Name = "button4";
             button4.Size = new Size(112, 34);
             button4.TabIndex = 4;
@@ -91,7 +91,7 @@
             // button5
             // 
             button5.BackColor = Color.MediumAquamarine;
-            button5.Location = new Point(226, 330);
+            button5.Location = new Point(479, 488);
             button5.Name = "button5";
             button5.Size = new Size(112, 34);
             button5.TabIndex = 5;
@@ -101,9 +101,9 @@
             // textBox1
             // 
             textBox1.BackColor = Color.MediumAquamarine;
-            textBox1.Location = new Point(28, 333);
+            textBox1.Location = new Point(28, 491);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(150, 31);
+            textBox1.Size = new Size(342, 31);
             textBox1.TabIndex = 6;
             // 
             // Ürünler_Listesi
@@ -111,7 +111,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1058, 656);
             Controls.Add(textBox1);
             Controls.Add(button5);
             Controls.Add(button4);

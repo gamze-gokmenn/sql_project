@@ -44,7 +44,7 @@
             // button1
             // 
             button1.BackColor = Color.IndianRed;
-            button1.Location = new Point(24, 34);
+            button1.Location = new Point(24, 47);
             button1.Name = "button1";
             button1.Size = new Size(112, 34);
             button1.TabIndex = 0;
@@ -59,13 +59,13 @@
             dataGridView1.Location = new Point(24, 146);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(725, 292);
+            dataGridView1.Size = new Size(725, 381);
             dataGridView1.TabIndex = 1;
             // 
             // textBox1
             // 
             textBox1.BackColor = Color.DarkKhaki;
-            textBox1.Location = new Point(814, 154);
+            textBox1.Location = new Point(846, 147);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(150, 31);
             textBox1.TabIndex = 2;
@@ -74,7 +74,7 @@
             // textBox2
             // 
             textBox2.BackColor = Color.DarkKhaki;
-            textBox2.Location = new Point(814, 201);
+            textBox2.Location = new Point(846, 194);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(150, 31);
             textBox2.TabIndex = 3;
@@ -83,7 +83,7 @@
             // textBox3
             // 
             textBox3.BackColor = Color.DarkKhaki;
-            textBox3.Location = new Point(814, 296);
+            textBox3.Location = new Point(846, 289);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(150, 31);
             textBox3.TabIndex = 5;
@@ -92,7 +92,7 @@
             // textBox4
             // 
             textBox4.BackColor = Color.DarkKhaki;
-            textBox4.Location = new Point(814, 249);
+            textBox4.Location = new Point(846, 242);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(150, 31);
             textBox4.TabIndex = 4;
@@ -101,7 +101,7 @@
             // textBox5
             // 
             textBox5.BackColor = Color.DarkKhaki;
-            textBox5.Location = new Point(814, 389);
+            textBox5.Location = new Point(846, 382);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(150, 31);
             textBox5.TabIndex = 7;
@@ -110,7 +110,7 @@
             // textBox6
             // 
             textBox6.BackColor = Color.DarkKhaki;
-            textBox6.Location = new Point(814, 342);
+            textBox6.Location = new Point(846, 335);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(150, 31);
             textBox6.TabIndex = 6;
@@ -120,7 +120,7 @@
             // 
             button2.BackColor = Color.DarkKhaki;
             button2.ForeColor = SystemColors.InfoText;
-            button2.Location = new Point(814, 84);
+            button2.Location = new Point(854, 447);
             button2.Name = "button2";
             button2.Size = new Size(142, 41);
             button2.TabIndex = 8;
@@ -131,7 +131,7 @@
             // button3
             // 
             button3.BackColor = Color.IndianRed;
-            button3.Location = new Point(228, 34);
+            button3.Location = new Point(221, 47);
             button3.Name = "button3";
             button3.Size = new Size(112, 34);
             button3.TabIndex = 9;
@@ -144,7 +144,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
-            ClientSize = new Size(1082, 450);
+            ClientSize = new Size(1082, 565);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(textBox5);

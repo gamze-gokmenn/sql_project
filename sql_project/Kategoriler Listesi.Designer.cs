@@ -40,16 +40,16 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(33, 33);
+            dataGridView1.Location = new Point(37, 47);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(360, 225);
+            dataGridView1.Size = new Size(672, 458);
             dataGridView1.TabIndex = 0;
             // 
             // button1
             // 
             button1.BackColor = Color.Peru;
-            button1.Location = new Point(214, 310);
+            button1.Location = new Point(453, 535);
             button1.Name = "button1";
             button1.Size = new Size(112, 34);
             button1.TabIndex = 1;
@@ -59,7 +59,7 @@
             // button2
             // 
             button2.BackColor = Color.Peru;
-            button2.Location = new Point(484, 49);
+            button2.Location = new Point(804, 123);
             button2.Name = "button2";
             button2.Size = new Size(166, 34);
             button2.TabIndex = 2;
@@ -69,7 +69,7 @@
             // button3
             // 
             button3.BackColor = Color.Peru;
-            button3.Location = new Point(484, 117);
+            button3.Location = new Point(804, 178);
             button3.Name = "button3";
             button3.Size = new Size(166, 34);
             button3.TabIndex = 3;
@@ -79,7 +79,7 @@
             // button4
             // 
             button4.BackColor = Color.DarkOrange;
-            button4.Location = new Point(507, 309);
+            button4.Location = new Point(827, 264);
             button4.Name = "button4";
             button4.Size = new Size(143, 34);
             button4.TabIndex = 4;
@@ -89,9 +89,9 @@
             // textBox1
             // 
             textBox1.BackColor = Color.Peru;
-            textBox1.Location = new Point(33, 312);
+            textBox1.Location = new Point(37, 538);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(150, 31);
+            textBox1.Size = new Size(307, 31);
             textBox1.TabIndex = 5;
             // 
             // Kategoriler_Listesi
@@ -99,7 +99,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PaleGoldenrod;
-            ClientSize = new Size(715, 405);
+            ClientSize = new Size(1040, 645);
             Controls.Add(textBox1);
             Controls.Add(button4);
             Controls.Add(button3);

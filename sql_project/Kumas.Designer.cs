@@ -54,7 +54,7 @@
             // 
             // textBox1
             // 
-            textBox1.BackColor = Color.Gold;
+            textBox1.BackColor = Color.Moccasin;
             textBox1.Location = new Point(52, 39);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(150, 31);
@@ -63,7 +63,7 @@
             // 
             // textBox2
             // 
-            textBox2.BackColor = Color.Gold;
+            textBox2.BackColor = Color.Moccasin;
             textBox2.Location = new Point(52, 119);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(150, 31);
@@ -72,7 +72,7 @@
             // 
             // textBox3
             // 
-            textBox3.BackColor = Color.Gold;
+            textBox3.BackColor = Color.Moccasin;
             textBox3.Location = new Point(52, 199);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(150, 31);
@@ -81,7 +81,7 @@
             // 
             // textBox4
             // 
-            textBox4.BackColor = Color.Gold;
+            textBox4.BackColor = Color.Moccasin;
             textBox4.Location = new Point(52, 279);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(150, 31);
@@ -90,7 +90,7 @@
             // 
             // textBox5
             // 
-            textBox5.BackColor = Color.Gold;
+            textBox5.BackColor = Color.Moccasin;
             textBox5.Location = new Point(52, 359);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(150, 31);

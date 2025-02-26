@@ -43,13 +43,13 @@
             dataGridView1.Location = new Point(27, 25);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(360, 225);
+            dataGridView1.Size = new Size(669, 432);
             dataGridView1.TabIndex = 0;
             // 
             // button1
             // 
             button1.BackColor = Color.Violet;
-            button1.Location = new Point(242, 313);
+            button1.Location = new Point(380, 502);
             button1.Name = "button1";
             button1.Size = new Size(112, 34);
             button1.TabIndex = 1;
@@ -59,7 +59,7 @@
             // button2
             // 
             button2.BackColor = Color.Violet;
-            button2.Location = new Point(514, 48);
+            button2.Location = new Point(785, 121);
             button2.Name = "button2";
             button2.Size = new Size(150, 34);
             button2.TabIndex = 2;
@@ -69,7 +69,7 @@
             // button3
             // 
             button3.BackColor = Color.Violet;
-            button3.Location = new Point(514, 113);
+            button3.Location = new Point(785, 186);
             button3.Name = "button3";
             button3.Size = new Size(150, 34);
             button3.TabIndex = 3;
@@ -79,7 +79,7 @@
             // button4
             // 
             button4.BackColor = Color.MediumOrchid;
-            button4.Location = new Point(505, 310);
+            button4.Location = new Point(785, 284);
             button4.Name = "button4";
             button4.Size = new Size(159, 34);
             button4.TabIndex = 4;
@@ -89,9 +89,9 @@
             // textBox1
             // 
             textBox1.BackColor = Color.Violet;
-            textBox1.Location = new Point(27, 313);
+            textBox1.Location = new Point(27, 502);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(150, 31);
+            textBox1.Size = new Size(265, 31);
             textBox1.TabIndex = 5;
             // 
             // Kumaş_Listele
@@ -99,7 +99,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Beige;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1050, 609);
             Controls.Add(textBox1);
             Controls.Add(button4);
             Controls.Add(button3);

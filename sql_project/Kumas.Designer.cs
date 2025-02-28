@@ -51,6 +51,7 @@
             button1.TabIndex = 0;
             button1.Text = "Kaydet";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // textBox1
             // 
@@ -149,6 +150,7 @@
             button2.TabIndex = 11;
             button2.Text = "Kumaşları Listele";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // Kumas
             // 

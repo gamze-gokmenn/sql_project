@@ -56,6 +56,7 @@
             button1.TabIndex = 1;
             button1.Text = "Sepete Ekle";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -66,6 +67,7 @@
             button2.TabIndex = 2;
             button2.Text = "Ürünü Güncelle";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -76,6 +78,7 @@
             button3.TabIndex = 3;
             button3.Text = "Ürünü Sil";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -97,6 +100,7 @@
             button5.TabIndex = 5;
             button5.Text = "Bul";
             button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // textBox1
             // 

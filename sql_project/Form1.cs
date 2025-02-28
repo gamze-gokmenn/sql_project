@@ -18,6 +18,8 @@ namespace sql_project
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            // listele butonu
             //dbm.baslat();
             dataGridView1.DataSource = dbm.kullaniciler();
             //dbm.kapat();
@@ -46,6 +48,7 @@ namespace sql_project
 
         private void button3_Click(object sender, EventArgs e)
         {
+            // Ürünlere git butonu
             Urunler urunler = new Urunler();
             urunler.Show();
             //this.Hide();

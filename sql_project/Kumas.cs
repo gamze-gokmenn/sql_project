@@ -21,5 +21,15 @@ namespace sql_project
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // kaydet   
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // kumaşları listele
+        }
     }
 }

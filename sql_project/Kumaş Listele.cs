@@ -16,5 +16,25 @@ namespace sql_project
         {
             InitializeComponent();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // kumaş güncelle
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            // kumaş sil    
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            // ürünlere git
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // bul
+        }
     }
 }

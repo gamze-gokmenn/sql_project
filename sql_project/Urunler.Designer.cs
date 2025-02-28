@@ -317,6 +317,7 @@
             button2.TabIndex = 25;
             button2.Text = "Güncelle";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -328,6 +329,7 @@
             button3.TabIndex = 26;
             button3.Text = "Sil";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // Urunler
             // 

@@ -26,5 +26,10 @@ namespace sql_project
         {
             // Kaydet
         }
+        DatabaseManagement database = new DatabaseManagement();
+        private void Sepet_Load(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = database.sepetler();
+        }
     }
 }

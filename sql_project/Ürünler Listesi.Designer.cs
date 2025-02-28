@@ -46,6 +46,7 @@
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(644, 386);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // button1
             // 
@@ -125,6 +126,7 @@
             Controls.Add(dataGridView1);
             Name = "Ürünler_Listesi";
             Text = "Ürünler_Listesi";
+            Load += Ürünler_Listesi_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

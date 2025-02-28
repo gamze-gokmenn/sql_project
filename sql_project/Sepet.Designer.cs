@@ -37,12 +37,14 @@
             textBox6 = new TextBox();
             textBox7 = new TextBox();
             textBox8 = new TextBox();
+            dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // button1
             // 
             button1.BackColor = Color.DodgerBlue;
-            button1.Location = new Point(626, 182);
+            button1.Location = new Point(245, 381);
             button1.Name = "button1";
             button1.Size = new Size(112, 34);
             button1.TabIndex = 0;
@@ -119,12 +121,22 @@
             textBox8.Size = new Size(150, 31);
             textBox8.TabIndex = 8;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(403, 62);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(360, 353);
+            dataGridView1.TabIndex = 9;
+            // 
             // Sepet
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PaleGreen;
             ClientSize = new Size(800, 450);
+            Controls.Add(dataGridView1);
             Controls.Add(textBox8);
             Controls.Add(textBox7);
             Controls.Add(textBox6);
@@ -136,6 +148,8 @@
             Controls.Add(button1);
             Name = "Sepet";
             Text = "Sepet";
+            Load += Sepet_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -151,5 +165,6 @@
         private TextBox textBox6;
         private TextBox textBox7;
         private TextBox textBox8;
+        private DataGridView dataGridView1;
     }
 }

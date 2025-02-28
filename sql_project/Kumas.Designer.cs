@@ -60,7 +60,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(150, 31);
             textBox1.TabIndex = 1;
-            textBox1.Text = "Tip";
+            textBox1.Text = "Tür";
             // 
             // textBox2
             // 
@@ -172,6 +172,7 @@
             Controls.Add(button1);
             Name = "Kumas";
             Text = "Kumas";
+            Load += Kumas_Load;
             ResumeLayout(false);
             PerformLayout();
         }

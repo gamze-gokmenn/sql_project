@@ -1,4 +1,4 @@
-namespace sql_project
+﻿namespace sql_project
 {
     public partial class Form1 : Form
     {
@@ -16,14 +16,7 @@ namespace sql_project
         }
         DatabaseManagement dbm = new DatabaseManagement();
 
-        private void button1_Click(object sender, EventArgs e)
-        {
 
-            // listele butonu
-            //dbm.baslat();
-            dataGridView1.DataSource = dbm.kullaniciler();
-            //dbm.kapat();
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -37,21 +30,55 @@ namespace sql_project
 
             dbm.kullanici_ekle(isim, mail, tel, parola, bakiye, rol);
 
+            dataGridView1.DataSource = dbm.kullaniciler();
+
             //dbm.kapat();
 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            dataGridView1.DataSource = dbm.kullaniciler();
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void ürünlereGitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // �r�nlere git butonu
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void ürünEkleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             Urunler urunler = new Urunler();
             urunler.Show();
-            //this.Hide();
+        }
+
+        private void ürünlereGitToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Ürünler_Listesi urunler = new Ürünler_Listesi();
+            urunler.Show();
+        }
+
+        private void kategorilereGitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kategoriEkleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Kategorıler kategoriler = new Kategorıler();
+            kategoriler.Show();
+        }
+
+        private void kategorilereGitToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Kategoriler_Listesi kategoriler_Listesi = new Kategoriler_Listesi();
+            kategoriler_Listesi.Show();
         }
     }
 }

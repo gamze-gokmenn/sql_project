@@ -30,7 +30,7 @@
         {
             button1 = new Button();
             textBox1 = new TextBox();
-            comboBox1 = new ComboBox();
+            textBox2 = new TextBox();
             SuspendLayout();
             // 
             // button1
@@ -53,14 +53,12 @@
             textBox1.TabIndex = 1;
             textBox1.Text = "Giyim Tipi";
             // 
-            // comboBox1
+            // textBox2
             // 
-            comboBox1.BackColor = SystemColors.InactiveCaption;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(224, 70);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(182, 33);
-            comboBox1.TabIndex = 2;
+            textBox2.Location = new Point(240, 70);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(150, 31);
+            textBox2.TabIndex = 3;
             // 
             // Kategorıler
             // 
@@ -68,11 +66,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PaleGoldenrod;
             ClientSize = new Size(480, 291);
-            Controls.Add(comboBox1);
+            Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(button1);
             Name = "Kategorıler";
             Text = "Kategorıler";
+            Load += Kategorıler_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -81,6 +80,6 @@
 
         private Button button1;
         private TextBox textBox1;
-        private ComboBox comboBox1;
+        private TextBox textBox2;
     }
 }

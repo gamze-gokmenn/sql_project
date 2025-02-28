@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
             dataGridView1 = new DataGridView();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
@@ -37,20 +36,17 @@
             textBox5 = new TextBox();
             textBox6 = new TextBox();
             button2 = new Button();
-            button3 = new Button();
+            menuStrip1 = new MenuStrip();
+            ürünlereGitToolStripMenuItem = new ToolStripMenuItem();
+            ürünEkleToolStripMenuItem = new ToolStripMenuItem();
+            ürünlereGitToolStripMenuItem1 = new ToolStripMenuItem();
+            kategorilereGitToolStripMenuItem = new ToolStripMenuItem();
+            kategorilereGitToolStripMenuItem1 = new ToolStripMenuItem();
+            kategoriEkleToolStripMenuItem = new ToolStripMenuItem();
+            kumaşlaraGitToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.IndianRed;
-            button1.Location = new Point(24, 47);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 34);
-            button1.TabIndex = 0;
-            button1.Text = "listele";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
             // 
             // dataGridView1
             // 
@@ -61,6 +57,7 @@
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(725, 381);
             dataGridView1.TabIndex = 1;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // textBox1
             // 
@@ -128,16 +125,65 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
-            // button3
+            // menuStrip1
             // 
-            button3.BackColor = Color.IndianRed;
-            button3.Location = new Point(221, 47);
-            button3.Name = "button3";
-            button3.Size = new Size(112, 34);
-            button3.TabIndex = 9;
-            button3.Text = "ürünlere git";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
+            menuStrip1.ImageScalingSize = new Size(24, 24);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { ürünlereGitToolStripMenuItem, kategorilereGitToolStripMenuItem, kumaşlaraGitToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1082, 33);
+            menuStrip1.TabIndex = 10;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // ürünlereGitToolStripMenuItem
+            // 
+            ürünlereGitToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ürünEkleToolStripMenuItem, ürünlereGitToolStripMenuItem1 });
+            ürünlereGitToolStripMenuItem.Name = "ürünlereGitToolStripMenuItem";
+            ürünlereGitToolStripMenuItem.Size = new Size(85, 29);
+            ürünlereGitToolStripMenuItem.Text = "Ürünler";
+            ürünlereGitToolStripMenuItem.Click += ürünlereGitToolStripMenuItem_Click;
+            // 
+            // ürünEkleToolStripMenuItem
+            // 
+            ürünEkleToolStripMenuItem.Name = "ürünEkleToolStripMenuItem";
+            ürünEkleToolStripMenuItem.Size = new Size(207, 34);
+            ürünEkleToolStripMenuItem.Text = "Ürün Ekle";
+            ürünEkleToolStripMenuItem.Click += ürünEkleToolStripMenuItem_Click;
+            // 
+            // ürünlereGitToolStripMenuItem1
+            // 
+            ürünlereGitToolStripMenuItem1.Name = "ürünlereGitToolStripMenuItem1";
+            ürünlereGitToolStripMenuItem1.Size = new Size(207, 34);
+            ürünlereGitToolStripMenuItem1.Text = "Ürünlere Git";
+            ürünlereGitToolStripMenuItem1.Click += ürünlereGitToolStripMenuItem1_Click;
+            // 
+            // kategorilereGitToolStripMenuItem
+            // 
+            kategorilereGitToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { kategorilereGitToolStripMenuItem1, kategoriEkleToolStripMenuItem });
+            kategorilereGitToolStripMenuItem.Name = "kategorilereGitToolStripMenuItem";
+            kategorilereGitToolStripMenuItem.Size = new Size(149, 29);
+            kategorilereGitToolStripMenuItem.Text = "Kategorilere Git";
+            kategorilereGitToolStripMenuItem.Click += kategorilereGitToolStripMenuItem_Click;
+            // 
+            // kategorilereGitToolStripMenuItem1
+            // 
+            kategorilereGitToolStripMenuItem1.Name = "kategorilereGitToolStripMenuItem1";
+            kategorilereGitToolStripMenuItem1.Size = new Size(270, 34);
+            kategorilereGitToolStripMenuItem1.Text = "Kategorilere Git";
+            kategorilereGitToolStripMenuItem1.Click += kategorilereGitToolStripMenuItem1_Click;
+            // 
+            // kategoriEkleToolStripMenuItem
+            // 
+            kategoriEkleToolStripMenuItem.Name = "kategoriEkleToolStripMenuItem";
+            kategoriEkleToolStripMenuItem.Size = new Size(270, 34);
+            kategoriEkleToolStripMenuItem.Text = "Kategori Ekle";
+            kategoriEkleToolStripMenuItem.Click += kategoriEkleToolStripMenuItem_Click;
+            // 
+            // kumaşlaraGitToolStripMenuItem
+            // 
+            kumaşlaraGitToolStripMenuItem.Name = "kumaşlaraGitToolStripMenuItem";
+            kumaşlaraGitToolStripMenuItem.Size = new Size(136, 29);
+            kumaşlaraGitToolStripMenuItem.Text = "Kumaşlara Git";
             // 
             // Form1
             // 
@@ -145,7 +191,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
             ClientSize = new Size(1082, 565);
-            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(textBox5);
             Controls.Add(textBox6);
@@ -154,18 +199,19 @@
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(dataGridView1);
-            Controls.Add(button1);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Button button1;
         private DataGridView dataGridView1;
         private TextBox textBox1;
         private TextBox textBox2;
@@ -174,6 +220,13 @@
         private TextBox textBox5;
         private TextBox textBox6;
         private Button button2;
-        private Button button3;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem ürünlereGitToolStripMenuItem;
+        private ToolStripMenuItem kategorilereGitToolStripMenuItem;
+        private ToolStripMenuItem kumaşlaraGitToolStripMenuItem;
+        private ToolStripMenuItem ürünEkleToolStripMenuItem;
+        private ToolStripMenuItem ürünlereGitToolStripMenuItem1;
+        private ToolStripMenuItem kategorilereGitToolStripMenuItem1;
+        private ToolStripMenuItem kategoriEkleToolStripMenuItem;
     }
 }

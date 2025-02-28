@@ -21,10 +21,12 @@ namespace sql_project
         {
             // kumaş güncelle
         }
-
+        DatabaseManagement dbm = new DatabaseManagement();
         private void button3_Click(object sender, EventArgs e)
         {
             // kumaş sil    
+
+            dbm.kumas_sil(id);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -35,6 +37,16 @@ namespace sql_project
         private void button1_Click(object sender, EventArgs e)
         {
             // bul
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        string kumas_id;
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            kumas_id = dataGridView1.CurrentRow.Cells[0].Value.ToString();
         }
     }
 }

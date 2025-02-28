@@ -16,10 +16,17 @@ namespace sql_project
         {
             InitializeComponent();
         }
-
+        DatabaseManagement database = new DatabaseManagement();
         private void button1_Click(object sender, EventArgs e)
         {
             // kaydet butonu
+
+            database.kategori_ekle(textBox2.Text); 
+        }
+
+        private void Kategorıler_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

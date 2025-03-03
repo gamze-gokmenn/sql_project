@@ -39,6 +39,7 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.BackgroundColor = Color.Snow;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(37, 47);
             dataGridView1.Name = "dataGridView1";

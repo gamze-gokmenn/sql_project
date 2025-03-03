@@ -50,7 +50,7 @@
             // 
             // dataGridView1
             // 
-            dataGridView1.BackgroundColor = Color.PaleTurquoise;
+            dataGridView1.BackgroundColor = Color.Snow;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(24, 146);
             dataGridView1.Name = "dataGridView1";
@@ -146,14 +146,14 @@
             // ürünEkleToolStripMenuItem
             // 
             ürünEkleToolStripMenuItem.Name = "ürünEkleToolStripMenuItem";
-            ürünEkleToolStripMenuItem.Size = new Size(207, 34);
+            ürünEkleToolStripMenuItem.Size = new Size(270, 34);
             ürünEkleToolStripMenuItem.Text = "Ürün Ekle";
             ürünEkleToolStripMenuItem.Click += ürünEkleToolStripMenuItem_Click;
             // 
             // ürünlereGitToolStripMenuItem1
             // 
             ürünlereGitToolStripMenuItem1.Name = "ürünlereGitToolStripMenuItem1";
-            ürünlereGitToolStripMenuItem1.Size = new Size(207, 34);
+            ürünlereGitToolStripMenuItem1.Size = new Size(270, 34);
             ürünlereGitToolStripMenuItem1.Text = "Ürünlere Git";
             ürünlereGitToolStripMenuItem1.Click += ürünlereGitToolStripMenuItem1_Click;
             // 

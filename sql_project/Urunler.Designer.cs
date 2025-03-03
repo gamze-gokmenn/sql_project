@@ -278,11 +278,11 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.Chocolate;
-            button1.Location = new Point(506, 48);
+            button1.BackColor = Color.MistyRose;
+            button1.Location = new Point(507, 76);
             button1.Margin = new Padding(2);
             button1.Name = "button1";
-            button1.Size = new Size(151, 75);
+            button1.Size = new Size(150, 47);
             button1.TabIndex = 22;
             button1.Text = "Ekle";
             button1.UseVisualStyleBackColor = false;
@@ -299,6 +299,7 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.BackgroundColor = Color.Snow;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(445, 138);
             dataGridView1.Margin = new Padding(2);
@@ -309,11 +310,11 @@
             // 
             // button2
             // 
-            button2.BackColor = Color.Chocolate;
-            button2.Location = new Point(681, 48);
+            button2.BackColor = Color.MistyRose;
+            button2.Location = new Point(678, 76);
             button2.Margin = new Padding(2);
             button2.Name = "button2";
-            button2.Size = new Size(168, 75);
+            button2.Size = new Size(171, 47);
             button2.TabIndex = 25;
             button2.Text = "Güncelle";
             button2.UseVisualStyleBackColor = false;
@@ -321,11 +322,11 @@
             // 
             // button3
             // 
-            button3.BackColor = Color.Chocolate;
-            button3.Location = new Point(869, 48);
+            button3.BackColor = Color.MistyRose;
+            button3.Location = new Point(874, 76);
             button3.Margin = new Padding(2);
             button3.Name = "button3";
-            button3.Size = new Size(168, 75);
+            button3.Size = new Size(163, 47);
             button3.TabIndex = 26;
             button3.Text = "Sil";
             button3.UseVisualStyleBackColor = false;

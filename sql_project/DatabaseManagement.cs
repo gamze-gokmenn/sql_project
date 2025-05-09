@@ -55,6 +55,104 @@ namespace sql_project
                 return dataTable;
             }
         }
+        public DataTable aranan_urun(string aranan)
+        {
+            using (MySqlConnection conn = new MySqlConnection(conStr))
+            {
+                //conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand("aranan_ürünler", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@paranan", aranan);
+                    da = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    return dt;
+                }
+            }
+        }
+
+        public DataTable tüm_ürünler()
+        {
+            using (MySqlConnection conn = new MySqlConnection(conStr))
+            {
+                //conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand("tüm_ürünler", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    da = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    return dt;
+                }
+                //conn.Close();
+            }
+
+        }
+        public void urun_guncelle(string id, string ad, string beden, string fiyat, string stok, string kategori, string renk, string kumas,string marka, string cinsiyet, string maliyet, string kul_id)
+        {
+            using (MySqlConnection conn = new MySqlConnection(conStr))
+            {
+                using (MySqlCommand cmd = new MySqlCommand("ürünler_güncelle", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@gad", ad);
+                    cmd.Parameters.AddWithValue("@gbeden", beden);
+                    cmd.Parameters.AddWithValue("@gfiyat", fiyat);
+                    cmd.Parameters.AddWithValue("@gstok", stok);
+                    cmd.Parameters.AddWithValue("@gkategori", kategori);
+                    cmd.Parameters.AddWithValue("@grenk", renk);
+                    cmd.Parameters.AddWithValue("@gkumaş", kumas);
+                    cmd.Parameters.AddWithValue("@gmarka", marka);
+                    cmd.Parameters.AddWithValue("@gcinsiyet", cinsiyet);
+                    cmd.Parameters.AddWithValue("@gmaliyet", maliyet);
+                    cmd.Parameters.AddWithValue("@gkullanıcılar_id", kul_id);
+                    cmd.Parameters.AddWithValue("@gid", id);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+        }
+
+        public void urun_ekle( string ad, string beden, string fiyat, string stok, string kategori, string renk, string kumas, string marka, string cinsiyet, string maliyet, string kul_id)
+        {
+            using (MySqlConnection conn = new MySqlConnection(conStr))
+            {
+                using (MySqlCommand cmd = new MySqlCommand("ürünler_ekle", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@pad", ad);
+                    cmd.Parameters.AddWithValue("@pbeden", beden);
+                    cmd.Parameters.AddWithValue("@pfiyat", fiyat);
+                    cmd.Parameters.AddWithValue("@pstok", stok);
+                    cmd.Parameters.AddWithValue("@pkategori", kategori);
+                    cmd.Parameters.AddWithValue("@prenk", renk);
+                    cmd.Parameters.AddWithValue("@pkumaş", kumas);
+                    cmd.Parameters.AddWithValue("@pmarka", marka);
+                    cmd.Parameters.AddWithValue("@pcinsiyet", cinsiyet);
+                    cmd.Parameters.AddWithValue("@pmaliyet", maliyet);
+                    cmd.Parameters.AddWithValue("@pkullanıcılar_id", kul_id);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Ürün başarılı bir şekilde eklendi");
+
+                }
+            }
+        }
+        public void urun_sil(string id)
+        {
+            //using (MySqlConnection conn = new MySqlConnection(conStr))
+            başlat();
+            {
+                cmd = new MySqlCommand("ürünler_sil", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@pid", id);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Silindi");
+            }
+            kapat();
+        }
 
 
         public DataTable sepetler()
@@ -69,6 +167,76 @@ namespace sql_project
                 da.Fill(dataTable);
                 return dataTable;
             }
+        }
+  
+
+        public DataTable tüm_sepet()
+        {
+            using (MySqlConnection conn = new MySqlConnection(conStr))
+            {
+                //conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand("tüm_sepetler", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    da = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    return dt;
+                }
+                //conn.Close();
+            }
+
+        }
+        public void sepet_guncelle(string id,string adet, string toplam_tutar, string urun_id, string kul_id)
+        {
+            using (MySqlConnection conn = new MySqlConnection(conStr))
+            {
+                using (MySqlCommand cmd = new MySqlCommand("sepet_güncelle", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@gadet", adet);
+                    cmd.Parameters.AddWithValue("@gtoplam_tutar", toplam_tutar);
+                    cmd.Parameters.AddWithValue("@gürün_id", urun_id);
+                    cmd.Parameters.AddWithValue("@gkullanıcılar_id", kul_id);
+                    cmd.Parameters.AddWithValue("@gid", id);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+        }
+
+        public void sepet_ekle( string adet, string toplam_tutar, string urun_id, string kul_id)
+        {
+            using (MySqlConnection conn = new MySqlConnection(conStr))
+            {
+                using (MySqlCommand cmd = new MySqlCommand("sepet_ekle", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@gadet", adet);
+                    cmd.Parameters.AddWithValue("@gtoplam_tutar", toplam_tutar);
+                    cmd.Parameters.AddWithValue("@gürün_id", urun_id);
+                    cmd.Parameters.AddWithValue("@gkullanıcılar_id", kul_id);
+
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Kumaş başarılı bir şekilde eklendi");
+
+                }
+            }
+        }
+        public void sepet_sil(string id)
+        {
+            //using (MySqlConnection conn = new MySqlConnection(conStr))
+            başlat();
+            {
+                cmd = new MySqlCommand("sepet_sil", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@pid", id);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Silindi");
+            }
+            kapat();
         }
 
         public DataTable kategoriler()
@@ -99,6 +267,59 @@ namespace sql_project
         //	int count = Convert.ToInt32(cmd.Parameters["@studentCount"].Value);
         //	Console.WriteLine($"Toplam öğrenci sayısı: {count}");
         //}
+        public DataTable aranan_kumaslar(string aranan)
+        {
+            using (MySqlConnection conn = new MySqlConnection(conStr))
+            {
+                //conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand("aranan_kumaslar", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@paranan", aranan);
+                    da = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    return dt;
+                }
+            }
+        }
+
+        public DataTable tüm_kumaslar()
+        {
+            using (MySqlConnection conn = new MySqlConnection(conStr))
+            {
+                //conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand("tüm_kumaslar", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    da = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    return dt;
+                }
+                //conn.Close();
+            }
+
+        }
+        public void kumas_guncelle(string id, string tip, string miktar, string renk, string fiyat, string kul_id)
+        {
+            using (MySqlConnection conn = new MySqlConnection(conStr))
+            {
+                using (MySqlCommand cmd = new MySqlCommand("kumas_güncelle", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@tip", tip);
+                    cmd.Parameters.AddWithValue("@gmiktar", miktar);
+                    cmd.Parameters.AddWithValue("@grenk", renk);
+                    cmd.Parameters.AddWithValue("@gfiyat", fiyat);
+                    cmd.Parameters.AddWithValue("@gkullanıcılar_id", kul_id);
+                    cmd.Parameters.AddWithValue("@gid", id);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();   
+                }
+            }
+        }
 
         public void kumas_ekle(string tip, string miktar, string renk, string fiyat, string kullanıcı_id)
         {
@@ -133,20 +354,70 @@ namespace sql_project
             }
             kapat();
         }
-        public void kategori_sil(string giyim_tipi)
+        public DataTable aranan_kategoriler(string aranan)
         {
-            //using (MySqlConnection conn = new MySqlConnection(conStr))
-            başlat();
+            using (MySqlConnection conn = new MySqlConnection(conStr))
             {
-                cmd = new MySqlCommand("kategoriler_sil", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("@pid", giyim_tipi);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Silindi");
+                //conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand("aranan_kategoriler", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@paranan", aranan);
+                    da = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    return dt;
+                }
             }
-            kapat();
         }
+
+        public DataTable tüm_kategoriler()
+        {
+            using (MySqlConnection conn = new MySqlConnection(conStr))
+            {
+                //conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand("tüm_kategoriler", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    da = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    return dt;
+                }
+                //conn.Close();
+            }
+
+        }
+        public void kategori_guncelle(string id, string giyim_tipi)
+        {
+            using (MySqlConnection conn = new MySqlConnection(conStr))
+            {
+                using (MySqlCommand cmd = new MySqlCommand("kullanıcı_güncelle", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ggiyim_tipi", giyim_tipi);
+                    cmd.Parameters.AddWithValue("@gid", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        public void kategori_sil(string id)
+        {
+            using (MySqlConnection conn = new MySqlConnection(conStr))
+            {
+                using (MySqlCommand cmd = new MySqlCommand("kategoriler_sil", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@pid", id);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    MessageBox.Show("Kullanıcı Başarılı Bir Şekilde Silindi");
+                }
+            }
+        }
+   
         public void kategori_ekle(string giyim_tipi)
         {
             //using (MySqlConnection conn = new MySqlConnection(conStr))
@@ -161,48 +432,48 @@ namespace sql_project
             }
             kapat();
         }
-        public void urun_ekle(string ad, string beden, string fiyat, string stok, string kategori, string renk, string kumas, string marka, string cinsiyet, string maliyet, string kullanıcılar_id)
-        {
-            using (MySqlConnection conn = new MySqlConnection(conStr))
-            {
-                using (MySqlCommand cmd = new MySqlCommand("ürünler_ekle", conn))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
+        //public void urun_ekle(string ad, string beden, string fiyat, string stok, string kategori, string renk, string kumas, string marka, string cinsiyet, string maliyet, string kullanıcılar_id)
+        //{
+        //    using (MySqlConnection conn = new MySqlConnection(conStr))
+        //    {
+        //        using (MySqlCommand cmd = new MySqlCommand("ürünler_ekle", conn))
+        //        {
+        //            cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@pAd", ad);
-                    cmd.Parameters.AddWithValue("@pBeden", beden);
-                    cmd.Parameters.AddWithValue("@pfiyat", fiyat);
-                    cmd.Parameters.AddWithValue("@pstok", stok);
-                    cmd.Parameters.AddWithValue("@pkategori", kategori);
-                    cmd.Parameters.AddWithValue("@prenk", renk);
-                    cmd.Parameters.AddWithValue("@pkumas", kumas);
-                    cmd.Parameters.AddWithValue("@pmarka", marka);
-                    cmd.Parameters.AddWithValue("@pcinsiyet", cinsiyet);
-                    cmd.Parameters.AddWithValue("@pmaliyet", maliyet);
-                    cmd.Parameters.AddWithValue("@pkullanıcılar_id", kullanıcılar_id);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Ürün başarılı bir şekilde eklendi");
+        //            cmd.Parameters.AddWithValue("@pAd", ad);
+        //            cmd.Parameters.AddWithValue("@pBeden", beden);
+        //            cmd.Parameters.AddWithValue("@pfiyat", fiyat);
+        //            cmd.Parameters.AddWithValue("@pstok", stok);
+        //            cmd.Parameters.AddWithValue("@pkategori", kategori);
+        //            cmd.Parameters.AddWithValue("@prenk", renk);
+        //            cmd.Parameters.AddWithValue("@pkumas", kumas);
+        //            cmd.Parameters.AddWithValue("@pmarka", marka);
+        //            cmd.Parameters.AddWithValue("@pcinsiyet", cinsiyet);
+        //            cmd.Parameters.AddWithValue("@pmaliyet", maliyet);
+        //            cmd.Parameters.AddWithValue("@pkullanıcılar_id", kullanıcılar_id);
+        //            cmd.ExecuteNonQuery();
+        //            MessageBox.Show("Ürün başarılı bir şekilde eklendi");
 
-                }
-            }
-        }
-        public void sepet_ekle(string adet, string toplam_tutar, string urun_id, string kullanicilar_id)
-        {
-            using (MySqlConnection conn = new MySqlConnection(conStr))
-            {
-                using (MySqlCommand cmd = new MySqlCommand("sepet_ekle", conn))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
+        //        }
+        //    }
+        ////}
+        //public void sepet_ekle(string adet, string toplam_tutar, string urun_id, string kullanicilar_id)
+        //{
+        //    using (MySqlConnection conn = new MySqlConnection(conStr))
+        //    {
+        //        using (MySqlCommand cmd = new MySqlCommand("sepet_ekle", conn))
+        //        {
+        //            cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@pAdet", adet);
-                    cmd.Parameters.AddWithValue("@pToplam_Tutar", toplam_tutar);
-                    cmd.Parameters.AddWithValue("@pÜrün_id", urun_id);
-                    cmd.Parameters.AddWithValue("@pKullanıcılar_id", kullanicilar_id);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Sepete başarılı bir şekilde eklendi");
-                }
-            }
-        }
+        //            cmd.Parameters.AddWithValue("@pAdet", adet);
+        //            cmd.Parameters.AddWithValue("@pToplam_Tutar", toplam_tutar);
+        //            cmd.Parameters.AddWithValue("@pÜrün_id", urun_id);
+        //            cmd.Parameters.AddWithValue("@pKullanıcılar_id", kullanicilar_id);
+        //            cmd.ExecuteNonQuery();
+        //            MessageBox.Show("Sepete başarılı bir şekilde eklendi");
+        //        }
+        //    }
+        //}
 
         public DataTable aranan_kullanıcılar(string aranan)
         {

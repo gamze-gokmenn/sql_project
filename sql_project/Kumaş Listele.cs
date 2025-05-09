@@ -26,7 +26,7 @@ namespace sql_project
         {
             // kumaş sil    
 
-            dbm.kumas_sil(id);
+            //dbm.kumas_sil(id);
         }
 
         private void button4_Click(object sender, EventArgs e)

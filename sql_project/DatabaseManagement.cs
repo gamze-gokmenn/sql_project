@@ -22,7 +22,7 @@ namespace sql_project
             conn = new MySqlConnection(conStr);
             conn.Open();
         }
-        
+
         public void kapat()
         {
             conn.Close();
@@ -56,6 +56,7 @@ namespace sql_project
             }
         }
 
+
         public DataTable sepetler()
         {
             string query = "select * from sepet ";
@@ -69,7 +70,7 @@ namespace sql_project
                 return dataTable;
             }
         }
-        
+
         public DataTable kategoriler()
         {
             string query = "select * from kategoriler ";
@@ -198,7 +199,76 @@ namespace sql_project
                     cmd.Parameters.AddWithValue("@pÜrün_id", urun_id);
                     cmd.Parameters.AddWithValue("@pKullanıcılar_id", kullanicilar_id);
                     cmd.ExecuteNonQuery();
-                MessageBox.Show("Sepete başarılı bir şekilde eklendi");
+                    MessageBox.Show("Sepete başarılı bir şekilde eklendi");
+                }
+            }
+        }
+
+        public DataTable aranan_kullanıcılar(string aranan)
+        {
+            using (MySqlConnection conn = new MySqlConnection(conStr))
+            {
+                //conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand("aranan_kullanıcılar", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@paranan", aranan);
+                    da = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    return dt;
+                }
+            }
+        }
+
+        public DataTable tüm_kullanıcılar()
+        {
+            using (MySqlConnection conn = new MySqlConnection(conStr))
+            {
+                //conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand("tüm_kullanıcılar", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    da = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    return dt;
+                }
+                //conn.Close();
+            }
+
+        }
+        public void kullanici_guncelle(string id,string ad_soyad, string mail, string parola, string bakiye, string kullanıcı_rol, string tel)
+        {
+            using (MySqlConnection conn = new MySqlConnection(conStr))
+            {
+                using (MySqlCommand cmd = new MySqlCommand("kullanıcı_güncelle", conn))
+                {
+                    cmd.CommandType= CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@gad_soyad",ad_soyad);
+                    cmd.Parameters.AddWithValue("@gmail",mail);
+                    cmd.Parameters.AddWithValue("@gparola",parola);
+                    cmd.Parameters.AddWithValue("@gbakiye",bakiye);
+                    cmd.Parameters.AddWithValue("@gkullanıcı_rol",kullanıcı_rol);
+                    cmd.Parameters.AddWithValue("@gtel_no",tel);
+                    cmd.Parameters.AddWithValue("@gid",id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        public void kullanici_sil(string id)
+        {
+            using (MySqlConnection conn = new MySqlConnection(conStr))
+            {
+                using (MySqlCommand cmd = new MySqlCommand("kullanıcı_sil", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+         
+                    cmd.Parameters.AddWithValue("@pid", id);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    MessageBox.Show("Kullanıcı Başarılı Bir Şekilde Silindi");
                 }
             }
         }

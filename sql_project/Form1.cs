@@ -5,16 +5,9 @@
         public Form1()
         {
             InitializeComponent();
-            textBox1.PlaceholderText = "Ad Soyad";
-            textBox2.PlaceholderText = "Mail";
-            textBox3.PlaceholderText = "Tel No";
-            textBox4.PlaceholderText = "Parola";
-            textBox5.PlaceholderText = "Bakiye";
-            textBox6.PlaceholderText = "Kullanici Rol";
-
-            textBox4.UseSystemPasswordChar = true;
         }
         DatabaseManagement dbm = new DatabaseManagement();
+        string global_id = "";
 
 
 
@@ -30,7 +23,8 @@
 
             dbm.kullanici_ekle(isim, mail, tel, parola, bakiye, rol);
 
-            dataGridView1.DataSource = dbm.kullaniciler();
+            //dataGridView1.DataSource = dbm.kullaniciler();
+            dataGridView1.DataSource = dbm.tüm_kullanıcılar();
 
             //dbm.kapat();
 
@@ -38,7 +32,9 @@
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = dbm.kullaniciler();
+            //dataGridView1.DataSource = dbm.kullaniciler();
+            dataGridView1.DataSource = dbm.tüm_kullanıcılar();
+
 
         }
 
@@ -79,6 +75,17 @@
         {
             Kategoriler_Listesi kategoriler_Listesi = new Kategoriler_Listesi();
             kategoriler_Listesi.Show();
+        }
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            global_id = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            //dbm.kullanici_sil(id);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dbm.kullanici_sil(global_id);
+            dataGridView1.DataSource = dbm.tüm_kullanıcılar();
         }
     }
 }

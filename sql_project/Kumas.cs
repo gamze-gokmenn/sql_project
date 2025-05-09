@@ -30,8 +30,8 @@ namespace sql_project
 
             string tür = comboBox1.Text;
             string renk = comboBox2.Text;
-            string adet = textBox1.Text;
-            string fiyat = textBox2.Text;
+            string adet = textBox6.Text;
+            string fiyat = textBox7.Text;
             string kullanici_id = "1";
 
             dbm.kumas_ekle(tür, adet, renk, fiyat, kullanici_id);

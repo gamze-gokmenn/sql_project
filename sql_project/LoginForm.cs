@@ -16,13 +16,14 @@ namespace sql_project
         {
             InitializeComponent();
         }
+        DatabaseManagement dbm = new DatabaseManagement();
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // giriş yap 
-            Form1 frm = new Form1();
-            frm.ShowDialog();
-            //this.Hide();
+            string email = textBox1.Text; // TextBox adlarını senin formundaki ile değiştir
+            string password = textBox2.Text;
+
+            dbm.login(email, password);
         }
 
         private void button2_Click(object sender, EventArgs e)

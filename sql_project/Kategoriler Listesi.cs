@@ -20,6 +20,9 @@ namespace sql_project
         private void button2_Click(object sender, EventArgs e)
         {
             // kategori güncelle
+
+            Kategori_Guncelle kg = new Kategori_Guncelle   (kategori_id);
+            kg.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -36,11 +39,15 @@ namespace sql_project
         private void button4_Click(object sender, EventArgs e)
         {
             //ürünlere git
+            Urunler urunler = new Urunler();
+            urunler.Show(); 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             // bul 
+            string aranan = textBox1.Text;
+            dataGridView1.DataSource = dbm.aranan_kategoriler(aranan);
         }
         DatabaseManagement dbm = new DatabaseManagement();
 

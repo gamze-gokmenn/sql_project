@@ -37,39 +37,44 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Cyan;
-            label1.Location = new Point(49, 97);
+            label1.Location = new Point(39, 78);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(94, 25);
+            label1.Size = new Size(76, 20);
             label1.TabIndex = 0;
             label1.Text = "GİYİM TİPİ";
             // 
             // button1
             // 
             button1.BackColor = SystemColors.MenuHighlight;
-            button1.Location = new Point(121, 178);
+            button1.Location = new Point(97, 142);
+            button1.Margin = new Padding(2, 2, 2, 2);
             button1.Name = "button1";
-            button1.Size = new Size(112, 34);
+            button1.Size = new Size(90, 27);
             button1.TabIndex = 1;
             button1.Text = "GÜNCELLE";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // textBox1
             // 
             textBox1.BackColor = Color.SkyBlue;
-            textBox1.Location = new Point(179, 91);
+            textBox1.Location = new Point(143, 73);
+            textBox1.Margin = new Padding(2, 2, 2, 2);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(150, 31);
+            textBox1.Size = new Size(121, 27);
             textBox1.TabIndex = 2;
             // 
             // Kategori_Guncelle
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(407, 308);
+            ClientSize = new Size(326, 246);
             Controls.Add(textBox1);
             Controls.Add(button1);
             Controls.Add(label1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "Kategori_Guncelle";
             Text = "Kategori_Guncelle";
             ResumeLayout(false);

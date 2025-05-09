@@ -20,23 +20,29 @@ namespace sql_project
         private void button2_Click(object sender, EventArgs e)
         {
             // kumaş güncelle
+            Kumas_Guncelle kg = new Kumas_Guncelle(kumas_id);
+            kg.Show();
         }
         DatabaseManagement dbm = new DatabaseManagement();
         private void button3_Click(object sender, EventArgs e)
         {
             // kumaş sil    
 
-            //dbm.kumas_sil(id);
+            dbm.kumas_sil(kumas_id);
+            dataGridView1.DataSource = dbm.tüm_kumaslar();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             // ürünlere git
+            Urunler urunler = new Urunler();
+            urunler.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             // bul
+            dataGridView1.DataSource= dbm.aranan_kumaslar(textBox1.Text);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -47,6 +53,11 @@ namespace sql_project
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             kumas_id = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+        }
+
+        private void Kumaş_Listele_Load(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = dbm.tüm_kumaslar();
         }
     }
 }

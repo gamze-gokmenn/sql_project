@@ -196,6 +196,7 @@
             kumaşlaraGitToolStripMenuItem.Name = "kumaşlaraGitToolStripMenuItem";
             kumaşlaraGitToolStripMenuItem.Size = new Size(115, 24);
             kumaşlaraGitToolStripMenuItem.Text = "Kumaşlara Git";
+            kumaşlaraGitToolStripMenuItem.Click += kumaşlaraGitToolStripMenuItem_Click;
             // 
             // button1
             // 

@@ -87,5 +87,11 @@
             dbm.kullanici_sil(global_id);
             dataGridView1.DataSource = dbm.tüm_kullanıcılar();
         }
+
+        private void kumaşlaraGitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Kumas kumas = new Kumas();
+            kumas.Show();
+        }
     }
 }

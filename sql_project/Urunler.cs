@@ -48,6 +48,14 @@ namespace sql_project
                 comboBox6.Items.Add(cinsiyet[i]);
             }
 
+            foreach (string i in dbm.kategori_adları())
+            {
+                comboBox2.Items.Add(i);
+            }
+            foreach (string i in dbm.kumas_adları())
+            {
+                comboBox4.Items.Add(i);
+            }
             dataGridView1.DataSource = dbm.urunler();
 
         }
@@ -76,7 +84,9 @@ namespace sql_project
             string maliyet = textBox5.Text;
             string kullanici_id = textBox6.Text;
 
-            dbm.urun_ekle(ad, beden, fiyat, stok, kategori, renk, kumas, marka, cinsiyet, maliyet, kullanici_id);
+            int kategori_id = dbm.kategori_find_id( kategori);
+            int kumas_id = dbm.kumas_find_id( kumas);
+            dbm.urun_ekle(ad, beden, fiyat, stok, kategori_id.ToString(), renk, kumas_id.ToString(), marka, cinsiyet, maliyet, kullanici_id);
 
             dataGridView1.DataSource = dbm.urunler();
         }
@@ -84,6 +94,9 @@ namespace sql_project
         private void button2_Click(object sender, EventArgs e)
         {
             //Güncelle
+            Urun_Guncelle ug = new Urun_Guncelle();
+            ug.Show();
+
         }
 
         private void button3_Click(object sender, EventArgs e)

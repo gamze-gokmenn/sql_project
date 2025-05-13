@@ -30,5 +30,17 @@ namespace sql_project
         {
             // Kayıt ol
         }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                string email = textBox1.Text; 
+                string password = textBox2.Text;
+
+                dbm.login(email, password);
+            }
+
+        }
     }
 }

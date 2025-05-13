@@ -35,19 +35,15 @@ namespace sql_project
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            // ürünü güncelle
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            // ürünü sil
-        }
+      
 
         private void button5_Click(object sender, EventArgs e)
         {
             // bul
+            string ürün = textBox1.Text;
+          //  database.aranan_urun(ürün);
+          //  dataGridView1 = new DataGridView();
+            dataGridView1.DataSource = database.aranan_urun(ürün);
         }
 
         private void Ürünler_Listesi_Load(object sender, EventArgs e)
@@ -58,8 +54,18 @@ namespace sql_project
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
             ürün_id = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             toplam_tutar = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = database.urunler();
         }
     }
 }

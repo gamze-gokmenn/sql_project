@@ -9,7 +9,7 @@ using Org.BouncyCastle.Crypto.Macs;
 
 namespace sql_project
 {
-    internal class DatabaseManagement
+    public class DatabaseManagement
     {
         string conStr = "server=localhost ; Uid = root; pwd = gmz7042; Database= gamze_minikod";
         MySqlConnection conn;
@@ -24,13 +24,14 @@ namespace sql_project
             using (MySqlConnection conn = new MySqlConnection(conStr))
             {
                 cmd = new MySqlCommand(query, conn);
-
+                conn.Open();
                 dr = cmd.ExecuteReader();
                 List<string> list = new List<string>();
                 while (dr.Read())
                 {
                     list.Add(dr["Giyim_Tipi"].ToString());
                 }
+                conn.Close();
                 return list;
             }
         }
@@ -40,37 +41,79 @@ namespace sql_project
             using (MySqlConnection conn = new MySqlConnection(conStr))
             {
                 cmd = new MySqlCommand(query, conn);
-
+                conn.Open();
                 dr = cmd.ExecuteReader();
                 List<string> list = new List<string>();
                 while (dr.Read())
                 {
                     list.Add(dr["Tip"].ToString());
                 }
+                conn.Close();
                 return list;
             }
         }
         public int kategori_find_id(string ad)
         {
-            string query = "select id from kategori where ad = @ad";
+            string query = "SELECT id FROM kategoriler WHERE Giyim_Tipi = @ad";
             using (MySqlConnection conn = new MySqlConnection(conStr))
             {
-                cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@ad", ad);
-                int id = Convert.ToInt32(cmd.ExecuteScalar());
-                return id;
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ad", ad);
+
+                        object result = cmd.ExecuteScalar(); 
+                        if (result != null)
+                        {
+                            return Convert.ToInt32(result);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Kategori bulunamadı.");
+                            return 0;
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Hata: " + e.Message);
+                    return 0;
+                }
             }
         }
+
         public int kumas_find_id(string ad)
         {
-            string query = "select id from kumas where tip = @ad";
+            string query = "SELECT id FROM kumas WHERE tip = @ad";
             using (MySqlConnection conn = new MySqlConnection(conStr))
             {
-                cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@ad", ad);
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ad", ad);
 
-                int id = Convert.ToInt32(cmd.ExecuteScalar());
-                return id;
+                        object result = cmd.ExecuteScalar();
+                        if (result != null)
+                        {
+                            return Convert.ToInt32(result);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Böyle bir kumaş bulunamadı.");
+                            return 0;
+                        }
+                    }
+                    conn.Close();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Hata: " + e.Message);
+                    return 0;
+                }
             }
         }
 
@@ -199,6 +242,7 @@ namespace sql_project
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
+                    MessageBox.Show("Ürün Güncellendi");
                 }
             }
         }
@@ -209,6 +253,7 @@ namespace sql_project
             {
                 using (MySqlCommand cmd = new MySqlCommand("ürünler_ekle", conn))
                 {
+                    conn.Open();
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@pad", ad);
                     cmd.Parameters.AddWithValue("@pbeden", beden);
@@ -223,7 +268,7 @@ namespace sql_project
                     cmd.Parameters.AddWithValue("@pkullanıcılar_id", kul_id);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Ürün başarılı bir şekilde eklendi");
-
+                    conn.Close();
                 }
             }
         }
@@ -301,15 +346,15 @@ namespace sql_project
                 using (MySqlCommand cmd = new MySqlCommand("sepet_ekle", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@gadet", adet);
-                    cmd.Parameters.AddWithValue("@gtoplam_tutar", toplam_tutar);
-                    cmd.Parameters.AddWithValue("@gürün_id", urun_id);
-                    cmd.Parameters.AddWithValue("@gkullanıcılar_id", kul_id);
+                    cmd.Parameters.AddWithValue("@padet", adet);
+                    cmd.Parameters.AddWithValue("@ptoplam_tutar", toplam_tutar);
+                    cmd.Parameters.AddWithValue("@pürün_id", urun_id);
+                    cmd.Parameters.AddWithValue("@pkullanıcılar_id", kul_id);
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
-                    MessageBox.Show("Kumaş başarılı bir şekilde eklendi");
+                    MessageBox.Show("Ürün sepete başarılı bir şekilde eklendi");
 
                 }
             }
@@ -324,7 +369,7 @@ namespace sql_project
 
                 cmd.Parameters.AddWithValue("@pid", id);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Silindi");
+                //MessageBox.Show("Silindi");
             }
             kapat();
         }
@@ -398,7 +443,7 @@ namespace sql_project
                 using (MySqlCommand cmd = new MySqlCommand("kumas_güncelle", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@tip", tip);
+                    cmd.Parameters.AddWithValue("@gtip", tip);
                     cmd.Parameters.AddWithValue("@gmiktar", miktar);
                     cmd.Parameters.AddWithValue("@grenk", renk);
                     cmd.Parameters.AddWithValue("@gfiyat", fiyat);
@@ -434,8 +479,8 @@ namespace sql_project
         }
         public void kumas_sil(string id)
         {
-            //using (MySqlConnection conn = new MySqlConnection(conStr))
-            başlat();
+            using (MySqlConnection conn = new MySqlConnection(conStr))
+            //başlat();
             {
                 cmd = new MySqlCommand("kumas_sil", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -446,7 +491,7 @@ namespace sql_project
                 conn.Close();
                 MessageBox.Show("Silindi");
             }
-            kapat();
+            //kapat();
         }
         public DataTable aranan_kategoriler(string aranan)
         {

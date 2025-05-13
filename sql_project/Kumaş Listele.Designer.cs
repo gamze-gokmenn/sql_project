@@ -34,6 +34,7 @@
             button3 = new Button();
             button4 = new Button();
             textBox1 = new TextBox();
+            button5 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -45,7 +46,7 @@
             dataGridView1.Margin = new Padding(2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(535, 346);
+            dataGridView1.Size = new Size(798, 346);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
@@ -65,7 +66,7 @@
             // button2
             // 
             button2.BackColor = Color.Violet;
-            button2.Location = new Point(628, 97);
+            button2.Location = new Point(505, 397);
             button2.Margin = new Padding(2);
             button2.Name = "button2";
             button2.Size = new Size(146, 27);
@@ -77,7 +78,7 @@
             // button3
             // 
             button3.BackColor = Color.Violet;
-            button3.Location = new Point(628, 149);
+            button3.Location = new Point(505, 449);
             button3.Margin = new Padding(2);
             button3.Name = "button3";
             button3.Size = new Size(146, 27);
@@ -89,7 +90,7 @@
             // button4
             // 
             button4.BackColor = Color.MediumOrchid;
-            button4.Location = new Point(628, 227);
+            button4.Location = new Point(674, 449);
             button4.Margin = new Padding(2);
             button4.Name = "button4";
             button4.Size = new Size(146, 27);
@@ -107,12 +108,25 @@
             textBox1.Size = new Size(213, 27);
             textBox1.TabIndex = 5;
             // 
+            // button5
+            // 
+            button5.BackColor = Color.MediumOrchid;
+            button5.Location = new Point(674, 397);
+            button5.Margin = new Padding(2);
+            button5.Name = "button5";
+            button5.Size = new Size(146, 27);
+            button5.TabIndex = 6;
+            button5.Text = "Yenile";
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
+            // 
             // Kumaş_Listele
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Beige;
             ClientSize = new Size(840, 487);
+            Controls.Add(button5);
             Controls.Add(textBox1);
             Controls.Add(button4);
             Controls.Add(button3);
@@ -136,5 +150,6 @@
         private Button button3;
         private Button button4;
         private TextBox textBox1;
+        private Button button5;
     }
 }

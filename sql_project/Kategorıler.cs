@@ -21,10 +21,15 @@ namespace sql_project
         {
             // kaydet butonu
 
-            database.kategori_ekle(textBox2.Text); 
+            database.kategori_ekle(textBox2.Text);
         }
 
         private void Kategorıler_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

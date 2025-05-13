@@ -36,9 +36,10 @@
             // button1
             // 
             button1.BackColor = Color.YellowGreen;
-            button1.Location = new Point(160, 174);
+            button1.Location = new Point(128, 139);
+            button1.Margin = new Padding(2, 2, 2, 2);
             button1.Name = "button1";
-            button1.Size = new Size(112, 34);
+            button1.Size = new Size(90, 27);
             button1.TabIndex = 0;
             button1.Text = "Kaydet";
             button1.UseVisualStyleBackColor = false;
@@ -47,28 +48,32 @@
             // textBox1
             // 
             textBox1.BackColor = SystemColors.InactiveCaption;
-            textBox1.Location = new Point(29, 70);
+            textBox1.Location = new Point(23, 56);
+            textBox1.Margin = new Padding(2, 2, 2, 2);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(150, 31);
+            textBox1.Size = new Size(121, 27);
             textBox1.TabIndex = 1;
-            textBox1.Text = "Giyim Tipi";
+            textBox1.Text = "Kategori Tipi";
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(240, 70);
+            textBox2.Location = new Point(192, 56);
+            textBox2.Margin = new Padding(2, 2, 2, 2);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(150, 31);
+            textBox2.Size = new Size(121, 27);
             textBox2.TabIndex = 3;
             // 
             // Kategorıler
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PaleGoldenrod;
-            ClientSize = new Size(480, 291);
+            ClientSize = new Size(384, 233);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(button1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "Kategorıler";
             Text = "Kategorıler";
             Load += Kategorıler_Load;

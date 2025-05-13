@@ -101,7 +101,7 @@
             comboBox1.BackColor = Color.Aquamarine;
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new Point(176, 19);
-            comboBox1.Margin = new Padding(2, 2, 2, 2);
+            comboBox1.Margin = new Padding(2);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(146, 28);
             comboBox1.TabIndex = 5;
@@ -110,7 +110,7 @@
             // 
             textBox1.BackColor = Color.Aquamarine;
             textBox1.Location = new Point(176, 66);
-            textBox1.Margin = new Padding(2, 2, 2, 2);
+            textBox1.Margin = new Padding(2);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(121, 27);
             textBox1.TabIndex = 6;
@@ -120,7 +120,7 @@
             comboBox2.BackColor = Color.Aquamarine;
             comboBox2.FormattingEnabled = true;
             comboBox2.Location = new Point(176, 110);
-            comboBox2.Margin = new Padding(2, 2, 2, 2);
+            comboBox2.Margin = new Padding(2);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(146, 28);
             comboBox2.TabIndex = 7;
@@ -129,7 +129,7 @@
             // 
             textBox2.BackColor = Color.Aquamarine;
             textBox2.Location = new Point(176, 157);
-            textBox2.Margin = new Padding(2, 2, 2, 2);
+            textBox2.Margin = new Padding(2);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(121, 27);
             textBox2.TabIndex = 8;
@@ -138,7 +138,7 @@
             // 
             textBox3.BackColor = Color.Aquamarine;
             textBox3.Location = new Point(176, 200);
-            textBox3.Margin = new Padding(2, 2, 2, 2);
+            textBox3.Margin = new Padding(2);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(121, 27);
             textBox3.TabIndex = 9;
@@ -147,7 +147,7 @@
             // 
             button1.BackColor = Color.GreenYellow;
             button1.Location = new Point(133, 278);
-            button1.Margin = new Padding(2, 2, 2, 2);
+            button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(90, 27);
             button1.TabIndex = 10;
@@ -172,9 +172,10 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "Kumas_Guncelle";
             Text = "Kumas_Guncelle";
+            Load += Kumas_Guncelle_Load;
             ResumeLayout(false);
             PerformLayout();
         }

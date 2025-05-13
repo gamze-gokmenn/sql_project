@@ -16,11 +16,17 @@ namespace sql_project
         {
             InitializeComponent();
         }
+        string kumas_id;
+        string tip;
+        string miktar;
+        string renk;
+        string fiyat;
+        string kul_id;
 
         private void button2_Click(object sender, EventArgs e)
         {
             // kumaş güncelle
-            Kumas_Guncelle kg = new Kumas_Guncelle(kumas_id);
+            Kumas_Guncelle kg = new Kumas_Guncelle(kumas_id, tip, miktar, renk, fiyat, kul_id);
             kg.Show();
         }
         DatabaseManagement dbm = new DatabaseManagement();
@@ -42,20 +48,30 @@ namespace sql_project
         private void button1_Click(object sender, EventArgs e)
         {
             // bul
-            dataGridView1.DataSource= dbm.aranan_kumaslar(textBox1.Text);
+            dataGridView1.DataSource = dbm.aranan_kumaslar(textBox1.Text);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
-        string kumas_id;
+
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             kumas_id = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            tip = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            miktar = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            renk = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            fiyat = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            kul_id = dataGridView1.CurrentRow.Cells[5].Value.ToString();
         }
 
         private void Kumaş_Listele_Load(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = dbm.tüm_kumaslar();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = dbm.tüm_kumaslar();
         }
